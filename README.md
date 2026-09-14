@@ -22,7 +22,7 @@
 - `HashSet<T>`: A hash set (unordered, uses `Hash` trait).
 - `BTreeSet<T>`: A set based on B-Tree (ordered).
 
-**4. Miscelleneous **
+**4. Miscelleneous**
 
 - `BinaryHeap<T>`: A priority queue (max heap by default).
 - `String`: A UTF-8 encoded, growable

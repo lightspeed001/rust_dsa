@@ -1,0 +1,57 @@
+#[derive(Debug)]
+struct TreeNode<T> {
+value: T,
+left: Option<Box<TreeNode<T>>>,
+right: Option<Box<TreeNode<T>>>,
+}
+
+#[derive(Debug)]
+struct BinaryTree<T> {
+root: Option<Box<TreeNode<T>>>,
+}
+
+impl<T: Ord> BinaryTree<T> {
+fn new() -> Self {
+BinaryTree { root: None}
+}
+
+fn insert(&mut self, value: T) {
+let new_node = Box::new(TreeNode {
+value,
+left: None,
+right: None,
+});
+
+if let Some(ref mut root) = self.root {
+let mut current = root;
+loop {
+if value < current.value{
+if let Some(ref mut left)  = current.left {
+current = left;
+} else {
+current.left = Some(new_node);
+break;
+}
+} else {
+if let Some(ref mut right) = current.right {
+current = right;
+} else {
+current.right = Some(new_node);
+break;
+}
+}
+}
+} else {
+self.root = Some(new_node);
+}
+}
+}
+
+fn main() {
+let mut tree = BinaryTree::new();
+tree.insert(5);
+tree.insert(3);
+tree.insert(7);
+println!("{:?}", tree) // Binary {root: Some(TreeNode {value: 5, left: Some(...), right: Some(...)})}
+}
+

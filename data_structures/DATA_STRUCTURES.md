@@ -3,7 +3,14 @@
 
 **Basic structures**: [Basic Structures](basic/)
 
--
+- _List (Dynamic Array)_
+- _LinkedList (Doubly Linked List)_
+- _ArrayList (Same as `Vec`)_
+- _Queue (FIFO)_
+- _Stack (LIFO)_
+- _Binary Tree_
+- _Graph (Adjacency List)_
+
 **Additional structures**: [Additional Structures](additional/) 
 
 - _Trie_: Autocomplete, spell check. Rust std lib equiv `None` (use `HashMap` manually).

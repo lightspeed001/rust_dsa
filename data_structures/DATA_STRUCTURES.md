@@ -3,13 +3,13 @@
 
 **Basic structures**: [Basic Structures](basic/)
 
-- _List (Dynamic Array)_
-- _LinkedList (Doubly Linked List)_
-- _ArrayList (Same as `Vec`)_
-- _Queue (FIFO)_
-- _Stack (LIFO)_
-- _Binary Tree_
-- _Graph (Adjacency List)_
+- _List (Dynamic Array)_ : Default choice for sequences. Use when you need contiguous memory and fast random access by index. `Vec<T>`
+- _LinkedList (Doubly Linked List)_ : Use when you need sonstant time-splitting or merging of lists and frequent insertions/removals at both ends without needing random access. `std::collections::LinkedList<T>`
+- _ArrayList (Same as `Vec`)_ : See List 
+- _Queue (FIFO)_ : Use for FIFO, such as task scheduling, buffering data streams, or implementing a Breadth-First Search (BFS). `std::collections::VecDeque<T>`
+- _Stack (LIFO)_ : Use for LIFO logic. Since `Vec` supports push and pop from the end, it is the standard way to implement undo mechanisms or Depth First Search (DFS).
+- _Binary Tree_ : Use when you need to maintain a sorted collection of elements and require logarithms time for insertions, removals and searches. `BTreeMap<K, V` or `BTreeSet<T>`
+- _Graph (Adjacency List)_ : Use for reprsenting social networks, social connections or map routing where you need to track back relationships between nodes and their neighbors. `Vec<Vec<usize>>` or `HashMap<K, Vec<V>>`
 
 **Additional structures**: [Additional Structures](additional/) 
 

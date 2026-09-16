@@ -1,7 +1,7 @@
 # rust_dsa
 ## Data Structures in Rust
 
-**Basic structures**: [Basic Structures](basic/)
+**Basic structures**: [Basic Structures](data_structures/DATA_STRUCTURES.md)
 
 - _List (Dynamic Array)_ : Default choice for sequences. Use when you need contiguous memory and fast random access by index. `Vec<T>`
 - _LinkedList (Doubly Linked List)_ : Use when you need sonstant time-splitting or merging of lists and frequent insertions/removals at both ends without needing random access. `std::collections::LinkedList<T>`
@@ -11,7 +11,7 @@
 - _Binary Tree_ : Use when you need to maintain a sorted collection of elements and require logarithms time for insertions, removals and searches. `BTreeMap<K, V` or `BTreeSet<T>`
 - _Graph (Adjacency List)_ : Use for reprsenting social networks, social connections or map routing where you need to track back relationships between nodes and their neighbors. `Vec<Vec<usize>>` or `HashMap<K, Vec<V>>`
 
-**Additional structures**: [Additional Structures](additional/) 
+**Additional structures**: [Additional Structures](data_structures/DATA_STRUCTURES.md) 
 
 - _Trie_: Autocomplete, spell check. Rust std lib equiv `None` (use `HashMap` manually).
 - _Disjoint Set_: Kruskal's algorithm, network connectivity. Rust std lib equiv `None` (use `HashMap` manually).

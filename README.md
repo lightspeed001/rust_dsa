@@ -1,8 +1,8 @@
 # rust_dsa
 ## DSAs in Rust
 
-- **Data Structures**: [data_structures.md](DATA_STRUCTURES.md) 
-- **Algorithms**: [algorithms.md](ALGOS.md)
+- **Data Structures**: [data_structures.md](/data_structures/DATA_STRUCTURES.md) 
+- **Algorithms**: [algorithms.md](/algorithms/ALGOS.md)
 
 ### Rust Primary Standard Library Structures :helmet:
 

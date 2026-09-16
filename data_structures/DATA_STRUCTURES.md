@@ -4,7 +4,7 @@
 **Basic structures**
 
 - _List (Dynamic Array)_ : Default choice for sequences. Use when you need contiguous memory and fast random access by index. `Vec<T>`
-- _LinkedList (Doubly Linked List)_ : Use when you need sonstant time-splitting or merging of lists and frequent insertions/removals at both ends without needing random access. `std::collections::LinkedList<T>`
+- _LinkedList (Doubly Linked List)_ : Use when you need constant time splitting or merging of lists and frequent insertions/removals at both ends without needing random access. `std::collections::LinkedList<T>`
 - _ArrayList (Same as `Vec`)_ : See List 
 - _Queue (FIFO)_ : Use for FIFO, such as task scheduling, buffering data streams, or implementing a Breadth-First Search (BFS). `std::collections::VecDeque<T>`
 - _Stack (LIFO)_ : Use for LIFO logic. Since `Vec` supports push and pop from the end, it is the standard way to implement undo mechanisms or Depth First Search (DFS).

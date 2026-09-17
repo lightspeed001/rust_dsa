@@ -4,13 +4,13 @@
 - **Data Structures**: [data_structures.md](/data_structures/DATA_STRUCTURES.md) 
 - **Algorithms**: [algorithms.md](/algorithms/ALGOS.md)
 
-### Rust Primary Standard Library Structures :helmet:
+### Rust Primary Standard Library Structures :rescue_worker_helmet:
 
 **1. Sequences (Ordered Collections)**
 
 - `Vec<T>`: A growable array (dynamic array)
 - `VecDeque<T>`: A double-ended queue (deque) implemented as a ring buffer.
-- `LinkedLink<T>`: A doubly linked list (rarely used due to poor cache locality).
+- `LinkedList<T>`: A doubly linked list (rarely used due to poor cache locality).
 
 **2. Maps (Key-Value Stores)**
 
@@ -38,7 +38,7 @@
 
 ```rust
 
-use std::collections::{HashMap, VecDeque, BinaryHeap};
+use std::collections::{HashMap, VecDeque, BinaryHeap, Vec, LinkedList, BTreeMap, HashSet, BTreeSet, BinaryHeap, Cow, Box, Rc, Arc};
 
 fn main() {
   
@@ -61,6 +61,19 @@ let mut heap = BinaryHeap::new();
 heap.push(3);
 heap.push(1);
 heap.push(2);
+
+// Linked List
+// LinkedList is a doubly linked list, useful when you need efficient insertions and removals at both ends.
+
+let mut list = LinkedList::new();
+list.push_back(1);
+list.push_back(2);
+list.push_front(6);
+ for val in list {
+   println!("{:?}", val); // 0, 1, 2
+ }
+
+ // useful when you need to iterate over entries in a specific order.
 }
 ```
 

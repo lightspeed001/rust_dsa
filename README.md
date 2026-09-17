@@ -30,7 +30,7 @@
 
 **5. Other Useful Types**
 
-- `Cow<'a, T>'`(Copy on Wire): An enum for borrowed or owned data.
+- `Cow<'a, T>`(Copy on Write): An enum for borrowed or owned data.
 - `Box<T>`: A heap-allocated smart pointer.
 - `Rc<T>`/`Arc<T>`: Reference-counting smart pointers (single-threaded and thread-safe, respectively).
 

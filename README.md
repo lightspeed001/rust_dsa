@@ -37,8 +37,11 @@
 **Example Usage**
 
 ```rust
-
-use std::collections::{HashMap, VecDeque, BinaryHeap, Vec, LinkedList, BTreeMap, HashSet, BTreeSet, BinaryHeap, Cow, Box, Rc, Arc};
+use std::borrow::Cow;
+use std::cmp::Reverse;
+use std::collections::{HashMap, VecDeque, BinaryHeap, Vec, LinkedList, BTreeMap, HashSet, BTreeSet, BinaryHeap, Box};
+use std::rc::Rc;
+use std::sync::Arc;
 
 fn main() {
   
@@ -74,6 +77,107 @@ list.push_front(6);
  }
 
  // useful when you need to iterate over entries in a specific order.
+ // B-Treemap: sorted map of keys to values
+ let mut scores = BTreeMap::new();
+ scores.insert("Alice", 10);
+ scores.insert("Bob", 20);
+
+ if let Some(score) = scores.get("Alice") {
+   println!("Alice: {score}"); // Iterates in key order
+ }
+
+ for (name, score) in &scores {
+   println!("{name}: {score}"); // Iterates in key order
+ }
+
+ // Hashset: unique values, optimized fir fast lookup
+ let mut languages = HashSet::new();
+ languages.insert("Rust");
+ languages.insert("Python");
+ languages.insert("Rust"); // Duplicate: ignored
+
+ println!("Has Rust: {}", langugaes.contains("Rust"));
+
+ //BTreeSet: unique values kept in sorted order
+ let mut numbers = BTreeSet::new();
+ numbers.insert(30);
+ numbers.insert(10);
+ numbers.insert(20);
+
+ for number in &numbers {
+    println!("{number}"); // 10, 20, 30
+ }
+
+ // BinaryHeap: priority queue; largest item is returned first
+ let mut heap = BinaryHeap::new();
+ heap.push(10);
+ heap.push(30);
+ heap.push(20);
+
+ while let Some(value) = heap.pop() {
+    println!("Largest next: {value}"); // 30, 20, 10
+ }
+
+ // A min-heap can be made with Reverse
+ let mut min_heap = BinaryHeap::new();
+ min_heap.push(Reverse(30));
+ min_heap.push(Reverse(10));
+ min_heap.push(Reverse(20));
+
+ while let Some(Reverse(value)) = min_heap.pop() {
+    println!("Smallest next: {value}"); // 10, 20, 30
+ }
+
+ // Cow ("clone on write"): either borrowed or owned data
+ fn make_uppercase(input: Cow<'_, str) -> Cow<'_, str> {
+    if input.chars().all(char::is_uppercase) {
+       input // No allocation; remains borrowed or owned
+    } else {
+       Cow::Owned(input.to_uppercase()) // Allocates only when needed
+    }
+ }
+
+ let borrowed = make_uppercase(Cow::Borrowed("hello"));
+ let already_uppercase = make_uppercase(Cow::Borrowed("HELLO"));
+
+ println!("{borrowed}");
+ println!("{already_uppercase}");
+
+ // Box: stores a value on the heap and owns it
+ let boxed_number = Box::new(42);
+ println!("Boxed number: {}", *boxed_number);
+
+ // Box is useful for recursive types
+ enum List {
+    Cons{i32, Box<List>},
+    Nil,
+ }
+
+ let list = List::Cons(
+    1,
+    Box::new(List::Cons(2, Box::new(List::Nil))),
+ );
+
+ // Rc: single-threaded reference counting
+ let shared_text = Rc::new(String::from("shared"));
+
+ let first_owner = Rc::clone(&shared_text);
+ let second_owner = Rc::clone(&shared_text);
+
+ println!("{first_owner}");
+ println!("{second_owner}");
+ println!("Rc owners: {}", Rc::strong_count(&shared_text));
+
+ // Arc: thread-safe reference counting
+ let shared_number = Arc::new(100);
+
+ let thread_number = Arc::clone(&shared_number);
+ let handle = std::thread::spawn(move || {
+    println!("Number from another thread: {thread_number}");
+ });
+
+ handle.join().unwrap();
+ println!("Number in main thread: {shared_number}");
 }
 ```
 

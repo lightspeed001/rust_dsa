@@ -28,3 +28,7 @@ Advanced Data Structures
 - Quadtrees/Octrees (for spacial partitioning)
 - Persistent Data Structures (immutable versions of structures)
 -->
+
+<!--
+lifetime annotations, explicit borrowing symbols, and algebraic data types
+-->

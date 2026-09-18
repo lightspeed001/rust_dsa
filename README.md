@@ -137,6 +137,21 @@ list.push_front(6);
     }
  }
 
+ /**
+ // Cow example usage
+ 
+ use std::borrow::Cow;
+
+ pub enum Cow<'a, B>
+where
+    B: ToOwned + ?Sized,
+{
+    Borrowed(&'a B),
+    Owned(<B as ToOwned>::Owned),
+}
+
+ **/
+
  let borrowed = make_uppercase(Cow::Borrowed("hello"));
  let already_uppercase = make_uppercase(Cow::Borrowed("HELLO"));
 
